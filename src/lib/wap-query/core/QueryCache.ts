@@ -1,3 +1,1 @@
-class QueryCache {}
-
-export default QueryCache;
+export class QueryCache {}

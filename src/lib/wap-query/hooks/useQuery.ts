@@ -1,5 +1,3 @@
-const useQuery = () => {
+export const useQuery = () => {
   return;
 };
-
-export default useQuery;

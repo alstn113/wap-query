@@ -1,14 +1,16 @@
 import { createContext } from 'react';
 import { QueryClient } from '../core';
 
-const QueryClientContext = createContext<QueryClient | undefined>(undefined);
+export const QueryClientContext = createContext<QueryClient | undefined>(
+  undefined,
+);
 
-interface QueryClientProviderProps {
+export interface QueryClientProviderProps {
   client: QueryClient;
   children?: React.ReactNode;
 }
 
-const QueryClientProvider = ({
+export const QueryClientProvider = ({
   client,
   children,
 }: QueryClientProviderProps) => {
@@ -18,5 +20,3 @@ const QueryClientProvider = ({
     </QueryClientContext.Provider>
   );
 };
-
-export default QueryClientProvider;

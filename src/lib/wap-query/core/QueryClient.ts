@@ -1,3 +1,9 @@
-class QueryClient {}
+import { QueryCache } from './QueryCache';
 
-export default QueryClient;
+export class QueryClient {
+  private queryCache: QueryCache;
+
+  constructor(queryCache?: QueryCache) {
+    this.queryCache = queryCache || new QueryCache();
+  }
+}

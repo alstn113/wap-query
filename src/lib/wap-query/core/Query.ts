@@ -1,3 +1,7 @@
-class Query {}
+import { QueryCache } from './QueryCache';
 
-export default Query;
+export interface QueryConfig {
+  cache: QueryCache;
+}
+
+export class Query {}

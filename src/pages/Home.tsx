@@ -9,7 +9,7 @@ const Home = () => {
     email: string;
   }
 
-  const { data, isLoading, isError } = useQuery(['users'], () =>
+  const { data, isLoading, isError, isFetching } = useQuery(['users'], () =>
     axios.get<User[]>('https://jsonplaceholder.typicode.com/users'),
   );
 
@@ -27,6 +27,7 @@ const Home = () => {
       {data?.data.map((user) => (
         <div key={user.id}>{user.name}</div>
       ))}
+      <div>{isFetching && 'isFetching'}</div>
     </div>
   );
 };

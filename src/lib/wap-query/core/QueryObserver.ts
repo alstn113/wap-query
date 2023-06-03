@@ -1,3 +1,1 @@
-class QueryObserver {}
-
-export default QueryObserver;
+export class QueryObserver {}

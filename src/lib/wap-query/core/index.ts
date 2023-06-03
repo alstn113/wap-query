@@ -1,5 +1,5 @@
-export { default as Query } from './Query';
-export { default as QueryCache } from './QueryCache';
-export { default as QueryObserver } from './QueryObserver';
-export { default as QueryClient } from './QueryClient';
-export { default as notifyManager } from './notifyManager';
+export * from './Query';
+export * from './QueryCache';
+export * from './QueryObserver';
+export * from './QueryClient';
+export * from './notifyManager';

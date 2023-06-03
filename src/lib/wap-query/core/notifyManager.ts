@@ -1,5 +1,3 @@
-const notifyManager = () => {
+export const notifyManager = () => {
   return;
 };
-
-export default notifyManager;
