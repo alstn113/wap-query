@@ -1,23 +1,34 @@
-import { Observer, Subject } from "../lib/observer";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const Home = () => {
-  const subject = new Subject();
+  interface User {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+  }
 
-  const observer1 = new Observer("Observer1");
-  const observer2 = new Observer("Observer2");
-  const observer3 = new Observer("Observer3");
+  const { data, isLoading, isError } = useQuery(['users'], () =>
+    axios.get<User[]>('https://jsonplaceholder.typicode.com/users'),
+  );
 
-  subject.addObserver(observer1);
-  subject.addObserver(observer2);
-  subject.addObserver(observer3);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  subject.setState("Hello World");
+  if (isError) {
+    return <div>Error</div>;
+  }
 
-  subject.removeObserver(observer2);
-
-  subject.setState("Hello World 2");
-
-  return <div>Home</div>;
+  return (
+    <div>
+      <div>Home</div>
+      {data?.data.map((user) => (
+        <div key={user.id}>{user.name}</div>
+      ))}
+    </div>
+  );
 };
 
 export default Home;
