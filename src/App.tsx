@@ -1,23 +1,18 @@
-import { Observer, Subject } from "./observer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Navigator from "./components/Navigator";
 
 const App = () => {
-  const subject = new Subject();
-
-  const observer1 = new Observer("Observer1");
-  const observer2 = new Observer("Observer2");
-  const observer3 = new Observer("Observer3");
-
-  subject.addObserver(observer1);
-  subject.addObserver(observer2);
-  subject.addObserver(observer3);
-
-  subject.setState("Hello World");
-
-  subject.removeObserver(observer2);
-
-  subject.setState("Hello World 2");
-
-  return <div>App</div>;
+  return (
+    <BrowserRouter>
+      <Navigator />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
