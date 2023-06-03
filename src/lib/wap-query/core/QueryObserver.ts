@@ -7,6 +7,7 @@ export class QueryObserver {
     this.client = client;
   }
 
+  // protected는 상속받은 클래스에서만 접근 가능
   protected onSubscribe(): void {
     return;
   }
